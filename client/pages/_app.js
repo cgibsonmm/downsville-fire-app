@@ -1,5 +1,5 @@
 import "../assets/css/styles.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/navbar/Navbar";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
