@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-export default function NavLink({ link }) {
+export default function NavLink({ link, handleLinkClick }) {
   return (
     <Link href={`/${link}`}>
-      <li className="px-4 py-2">{link}</li>
+      <li onClick={() => handleLinkClick()} className="px-4 py-2">
+        {link}
+      </li>
     </Link>
   );
 }

@@ -2,18 +2,28 @@ import Link from "next/link";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropDownLinks from "./DropDownLinks";
+import Cross from "../../assets/svg/cross.png";
 
-const Links = ["store", "store"];
+const Links = ["Store"];
 
 export default function Navbar() {
   const [linksOpen, setLinksOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setLinksOpen(false);
+  };
   return (
     <>
-      <header className="p-4 bg-gray-400 border-b-2 border-black">
+      <header className="p-4 bg-red-700 border-b-2 border-black">
         <nav>
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between items-center">
             <Link href="/">
-              <h1 className="text-xl font-bold">Downsville Fire Department</h1>
+              <div className="flex justify-center items-center">
+                <img className="h-10" src={Cross} />
+                <h3 className="text-xl font-bold">
+                  Downsville Fire Department
+                </h3>
+              </div>
             </Link>
             <div>
               <FontAwesomeIcon
@@ -24,7 +34,9 @@ export default function Navbar() {
           </div>
         </nav>
       </header>
-      {linksOpen && <DropDownLinks links={Links} />}
+      {linksOpen && (
+        <DropDownLinks links={Links} handleLinkClick={handleLinkClick} />
+      )}
     </>
   );
 }
