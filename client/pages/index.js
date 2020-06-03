@@ -7,7 +7,7 @@ const style = {
 
 export default function index() {
   return (
-    <div className="h-full bg-gray-100">
+    <div className="h-full w-full bg-gray-100">
       <div className="w-full flex hover:shadow-xl border-b-2">
         <div style={style.bg} className="w-1/3">
           <div className="bg-red-500 opacity-25 w-full h-full"></div>

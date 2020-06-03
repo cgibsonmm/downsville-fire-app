@@ -8,8 +8,9 @@ library.add(faBars);
 
 export default function App({ Component, pageProps }) {
   return (
-    <div className="h-screen w-full flex flex-col antialiased leading-tight">
+    <div className="h-screen w-screen flex flex-col antialiased leading-tight">
       <Navbar />
+      hello
       <Component {...pageProps} />
     </div>
   );

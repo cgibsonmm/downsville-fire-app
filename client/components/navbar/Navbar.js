@@ -15,18 +15,18 @@ export default function Navbar() {
   };
   return (
     <>
-      <header className="p-4 bg-red-700 border-b-2 border-black">
+      <header className="p-4 w-full bg-red-700 border-b-2 border-black">
         <nav>
           <div className="flex w-full justify-between items-center">
             <Link href="/">
               <div className="flex justify-center items-center">
                 <img className="h-10" src={Cross} />
                 <h3 className="text-xl font-bold">
-                  Downsville Fire Department
+                  Downsville Fire Department hello
                 </h3>
               </div>
             </Link>
-            <div class="md:hidden">
+            <div className="md:hidden">
               <FontAwesomeIcon
                 icon="bars"
                 onClick={() => setLinksOpen(!linksOpen)}
