@@ -3,8 +3,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
+import NavLink from "./NavLink";
 
-const Links = ["Store"];
+const Links = ["Store", "Test", "Test", "Test"];
 
 export default function Navbar() {
   const [linksOpen, setLinksOpen] = useState(false);
@@ -25,11 +26,18 @@ export default function Navbar() {
                 </h3>
               </div>
             </Link>
-            <div>
+            <div class="md:hidden">
               <FontAwesomeIcon
                 icon="bars"
                 onClick={() => setLinksOpen(!linksOpen)}
               />
+            </div>
+            <div className="hidden md:block">
+              <ul className="flex">
+                {Links.map((link) => (
+                  <NavLink link={link} handleLinkClick={() => null} />
+                ))}
+              </ul>
             </div>
           </div>
         </nav>
