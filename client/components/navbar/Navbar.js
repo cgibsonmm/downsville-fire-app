@@ -5,9 +5,11 @@ import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
 
-const Links = ["Store", "Test", "Test", "Test"];
+import { connect } from "react-redux";
 
-export default function Navbar() {
+const Links = ["store", "Test", "Test", "Test"];
+
+function Navbar({ count }) {
   const [linksOpen, setLinksOpen] = useState(false);
 
   const handleLinkClick = () => {
@@ -22,7 +24,8 @@ export default function Navbar() {
               <div className="flex justify-center items-center">
                 <img className="h-10" src={Cross} />
                 <h3 className="text-xl font-bold">
-                  Downsville Fire Department hello
+                  Downsville Fire Department
+                  {count}
                 </h3>
               </div>
             </Link>
@@ -48,3 +51,9 @@ export default function Navbar() {
     </>
   );
 }
+
+const mapStateToProps = (state) => ({
+  count: state.counter,
+});
+
+export default connect(mapStateToProps)(Navbar);
