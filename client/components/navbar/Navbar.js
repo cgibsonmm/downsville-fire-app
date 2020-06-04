@@ -25,10 +25,10 @@ function Navbar({ count }) {
                 <img className="h-10" src={Cross} />
                 <h3 className="text-xl font-bold">
                   Downsville Fire Department
-                  {count}
                 </h3>
               </div>
             </Link>
+            {count}
             <div className="md:hidden">
               <FontAwesomeIcon
                 icon="bars"
@@ -37,8 +37,12 @@ function Navbar({ count }) {
             </div>
             <div className="hidden md:block">
               <ul className="flex">
-                {Links.map((link) => (
-                  <NavLink link={link} handleLinkClick={() => null} />
+                {Links.map((link, index) => (
+                  <NavLink
+                    link={link}
+                    key={`full-nav-link-${index}`}
+                    handleLinkClick={() => null}
+                  />
                 ))}
               </ul>
             </div>
