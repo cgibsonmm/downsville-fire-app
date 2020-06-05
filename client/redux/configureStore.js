@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
-import { createWrapper, HYDRATE } from "next-redux-wrapper";
-import rootReducer from "./reducers";
+import { createWrapper } from "next-redux-wrapper";
+import reducer from "./reducers";
 
 const middleware =
   process.env.NODE_ENV !== "production"
@@ -8,18 +8,15 @@ const middleware =
     : null;
 
 function makeStore(initialState) {
-  initialState = { counter: 12 };
   const composeEnhancers =
     (typeof window != "undefined" &&
       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
     compose;
   return createStore(
-    rootReducer,
+    reducer,
     initialState,
     composeEnhancers(applyMiddleware(...middleware))
   );
 }
 
-const wrapper = createWrapper(makeStore, { debug: true });
-
-export default wrapper;
+export const wrapper = createWrapper(makeStore, { debug: true });

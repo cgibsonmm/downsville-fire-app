@@ -1,5 +1,6 @@
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import * as types from "../redux/actions/counter";
+import { wrapper, state } from "../redux/configureStore";
 
 const style = {
   bg: {

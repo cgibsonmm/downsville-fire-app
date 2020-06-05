@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 
 import { connect } from "react-redux";
 
-const Links = ["store", "Test", "Test", "Test"];
+const Links = ["store", "test", "test", "test"];
 
 function Navbar({ count }) {
   const [linksOpen, setLinksOpen] = useState(false);

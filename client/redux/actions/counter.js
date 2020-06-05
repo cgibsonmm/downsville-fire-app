@@ -1,11 +1,9 @@
 import * as types from "./actionTypes";
 
-export const add = (count) => ({
+export const add = () => ({
   type: types.ADD,
-  count,
 });
 
-export const sub = (count) => ({
+export const sub = () => ({
   type: types.SUB,
-  count,
 });
