@@ -5,11 +5,12 @@ import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
 
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Links = ["store", "test", "test", "test"];
 
-function Navbar({ count }) {
+export default function Navbar() {
+  const { counter } = useSelector((state) => state);
   const [linksOpen, setLinksOpen] = useState(false);
 
   const handleLinkClick = () => {
@@ -28,7 +29,7 @@ function Navbar({ count }) {
                 </h3>
               </div>
             </Link>
-            {count}
+            {counter}
             <div className="md:hidden">
               <FontAwesomeIcon
                 icon="bars"
@@ -55,9 +56,3 @@ function Navbar({ count }) {
     </>
   );
 }
-
-const mapStateToProps = (state) => ({
-  count: state.counter,
-});
-
-export default connect(mapStateToProps)(Navbar);
