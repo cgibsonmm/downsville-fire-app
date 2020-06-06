@@ -1,7 +1,3 @@
-import { connect, useSelector } from "react-redux";
-import * as types from "../redux/actions/counter";
-import { wrapper, state } from "../redux/configureStore";
-
 const style = {
   bg: {
     background: `url(${require("./../assets/images/bg.jpg")}) no-repeat center center`,
@@ -9,7 +5,7 @@ const style = {
   },
 };
 
-function index({ count, add, sub }) {
+export default function index() {
   return (
     <div className="h-full w-full bg-gray-100">
       <div className="w-full flex hover:shadow-xl border-b-2">
@@ -21,20 +17,6 @@ function index({ count, add, sub }) {
           <p>Serving your community since 1901</p>
         </div>
       </div>
-      {count}
-      <button onClick={() => add()}>ADD</button>
-      <button onClick={() => sub()}>Sub</button>
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  count: state.counter,
-});
-
-const mapDispatchToProps = {
-  add: types.add,
-  sub: types.sub,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(index);
