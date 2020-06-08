@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
@@ -13,9 +13,23 @@ export default function Navbar() {
   const { counter } = useSelector((state) => state);
   const [linksOpen, setLinksOpen] = useState(false);
 
+  useEffect(() => {
+    if (window) {
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 767 && linksOpen) {
+          setLinksOpen(false);
+        }
+      });
+    }
+    return () => {
+      window.removeEventListener("resize", null);
+    };
+  });
+
   const handleLinkClick = () => {
     setLinksOpen(false);
   };
+
   return (
     <>
       <header className="p-4 w-full bg-red-700 border-b-2 border-black">
