@@ -1,29 +1,31 @@
-import { useDispatch, useSelector } from "react-redux";
-import { add, sub } from "../redux/actions/counterActions";
+import House from "../assets/svg/fire-icons/house.svg";
+import Events from "../components/Events";
 
 const style = {
   bg: {
-    background: `url(${require("./../assets/images/bg.jpg")}) no-repeat center center`,
+    background: `url(${require("./../assets/images/fire.jpg")}) no-repeat center center`,
     backgroundSize: "cover",
   },
 };
 
 export default function index() {
-  const dispatch = useDispatch();
-  const { counter } = useSelector((state) => state);
   return (
-    <div className="h-full w-full bg-gray-100">
-      <div className="w-full flex hover:shadow-xl border-b-2">
-        <div style={style.bg} className="w-1/3">
-          <div className="bg-red-500 opacity-25 w-full h-full"></div>
-        </div>
-        <div className="px-2 py-10 w-2/3">
-          <h3 className="text-xl font-bold">Downsville Fire Department</h3>
-          <p>Serving your community since 1901</p>
-        </div>
-      </div>
-      <div>{counter}</div>
-      <button onClick={() => dispatch(add())}>CLICK</button>
+    <div>
+      <section>
+        <main style={style.bg}>
+          <div className="w-screen flex flex-col items-center py-32 bg-gray-900 bg-opacity-75 text-gray-100">
+            <img src={House} className="h-12" />
+            <h1 className="poppins-mid text-3xl">Serving The Community</h1>
+            <h3 className="poppins-light italic text-l">since 1902</h3>
+            <button className="mt-2 bg-red-500 font-bold hover:bg-transparent hover:text-red-500 border-2 border-red-500 px-6 py-2 rounded-full text-gray-100 focus:outline-none">
+              Join Now
+            </button>
+          </div>
+        </main>
+        <section>
+          <Events />
+        </section>
+      </section>
     </div>
   );
 }

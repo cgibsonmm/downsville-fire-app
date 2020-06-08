@@ -5,6 +5,7 @@ module.exports = {
   },
   variants: {
     shadow: ["hover"],
+    button: ["hover", "focus"],
   },
   plugins: [],
 };
