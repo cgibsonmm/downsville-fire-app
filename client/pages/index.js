@@ -1,3 +1,6 @@
+import { useDispatch, useSelector } from "react-redux";
+import { add, sub } from "../redux/actions/counterActions";
+
 const style = {
   bg: {
     background: `url(${require("./../assets/images/bg.jpg")}) no-repeat center center`,
@@ -6,6 +9,9 @@ const style = {
 };
 
 export default function index() {
+  const dispatch = useDispatch();
+  const { counter } = useSelector((state) => state);
+  console.log(counter);
   return (
     <div className="h-full w-full bg-gray-100">
       <div className="w-full flex hover:shadow-xl border-b-2">
@@ -17,6 +23,8 @@ export default function index() {
           <p>Serving your community since 1901</p>
         </div>
       </div>
+      <div>{counter}</div>
+      <button onClick={() => dispatch(add())}>CLICK</button>
     </div>
   );
 }

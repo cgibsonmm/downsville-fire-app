@@ -1,7 +1,7 @@
 // REDUX
 import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
-import store from "../redux/configureStore";
+import store from "../redux/store";
 
 // COMPONENTS
 import Navbar from "../components/navbar/Navbar";
@@ -23,6 +23,6 @@ function App({ Component, pageProps }) {
   );
 }
 
-const makeStore = () => store;
+const makeStore = (context) => store;
 const wrapper = createWrapper(makeStore, { debug: true });
 export default wrapper.withRedux(App);
