@@ -11,7 +11,6 @@ const style = {
 export default function index() {
   const dispatch = useDispatch();
   const { counter } = useSelector((state) => state);
-  console.log(counter);
   return (
     <div className="h-full w-full bg-gray-100">
       <div className="w-full flex hover:shadow-xl border-b-2">
