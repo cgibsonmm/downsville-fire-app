@@ -17,7 +17,7 @@ function Navbar({ count }) {
   };
   return (
     <>
-      <header className="p-4 w-full bg-red-700 border-b-2 border-black">
+      <header className="p-4 w-full bg-gray-400 border-b-2 border-black">
         <nav>
           <div className="flex w-full justify-between items-center">
             <Link href="/">
