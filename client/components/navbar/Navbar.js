@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 
 import { useSelector } from "react-redux";
 
-const Links = ["store", "test", "test", "test"];
+const Links = ["Home", "Gallery", "Events", "Contact Us"];
 
 export default function Navbar() {
   const { counter } = useSelector((state) => state);
@@ -32,20 +32,25 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="p-4 w-full bg-gray-400 border-b-2 border-black">
+      <header className="p-4 w-full bg-gray-800 border-b-2 border-black">
         <nav>
           <div className="flex w-full justify-between items-center">
             <Link href="/">
-              <div className="flex justify-center items-center">
-                <img className="h-10" src={Cross} />
-                <h3 className="text-xl font-bold">
-                  Downsville Fire Department
-                </h3>
+              <div className="flex">
+                <img className="h-16" src={Cross} />
+                <div className="flex flex-col justify-center h-auto">
+                  <h3 className="poppins-heavy text-gray-100 text-2xl leading-4 mt-2">
+                    Downsville
+                  </h3>
+                  <h6 className="poppins-light italic text-red-700 leading-5">
+                    Fire Department
+                  </h6>
+                </div>
               </div>
             </Link>
-            {counter}
             <div className="md:hidden">
               <FontAwesomeIcon
+                className="text-gray-100 text-2xl"
                 icon="bars"
                 onClick={() => setLinksOpen(!linksOpen)}
               />
