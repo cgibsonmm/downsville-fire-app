@@ -8,7 +8,7 @@ export default function NavLink({ link, handleLinkClick }) {
     <Link href={`/${URLLink}`}>
       <li
         onClick={() => handleLinkClick()}
-        className="px-4 py-2 poppins-mid md:text-gray-100"
+        className="px-4 md:px-2 lg:px-4 py-2 poppins-mid md:text-gray-100"
       >
         {link}
       </li>

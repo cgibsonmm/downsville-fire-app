@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 
 import { useSelector } from "react-redux";
 
-const Links = ["Home", "Gallery", "Events", "Contact Us"];
+const Links = ["Home", "Gallery", "Events", "Contact Us", "Member Login"];
 
 export default function Navbar() {
   const { counter } = useSelector((state) => state);
