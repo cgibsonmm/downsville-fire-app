@@ -1,11 +1,13 @@
 export const EventsList = [
   {
     date: "",
-    startTime: "",
-    endTime: "",
-    title: "Default Event 1",
-    details: "",
+    startTime: "12:00 PM",
+    endTime: "12:00 PM",
+    title: "Chicken BBQ",
+    details:
+      "Come on down to our famous chicken BBQ we would love to have you here! $5.00 at the door, and all you can eat wings!",
     type: "",
+    image: "./../assets/images/demo.jpg",
   },
   {
     date: "",
