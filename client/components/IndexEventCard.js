@@ -6,7 +6,7 @@ const style = {
 };
 
 export default function IndexEventCard({ event }) {
-  const { title, details, startTime, endTime, image } = event;
+  const { title, details, startTime, endTime } = event;
 
   return (
     <li className="h-auto w-full md:w-1/2 lg:w-1/3 px-1 py-1">
