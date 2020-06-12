@@ -8,9 +8,8 @@ import Navbar from "../components/navbar/Navbar";
 
 // STYLING
 import "../assets/css/styles.css";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-library.add(faBars);
+import { registerIcons } from "../helpers/FaSetup";
+registerIcons();
 
 function App({ Component, pageProps }) {
   return (

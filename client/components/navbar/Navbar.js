@@ -5,12 +5,9 @@ import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
 
-import { useSelector } from "react-redux";
-
 const Links = ["Home", "Gallery", "Events", "Contact Us", "Member Login"];
 
 export default function Navbar() {
-  const { counter } = useSelector((state) => state);
   const [linksOpen, setLinksOpen] = useState(false);
 
   useEffect(() => {
