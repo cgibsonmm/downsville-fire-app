@@ -8,8 +8,8 @@ import Navbar from "../components/navbar/Navbar";
 
 // STYLING
 import "../assets/css/styles.css";
-import { registerIcons } from "../helpers/FaSetup";
-registerIcons();
+import regIcons from "../helpers/FaSetup";
+regIcons();
 
 function App({ Component, pageProps }) {
   return (

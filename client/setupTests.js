@@ -1,2 +1,2 @@
-import { registerIcons } from "./helpers/FaSetup";
-registerIcons();
+import regIcons from "./helpers/FaSetup";
+regIcons();
