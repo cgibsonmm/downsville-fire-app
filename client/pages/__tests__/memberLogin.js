@@ -1,7 +1,17 @@
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import MemberLogin from "../member-login";
 
+afterEach(cleanup);
+
 describe("<MemberLogin />", () => {
-  const wrapper = render(<MemberLogin />);
-  test("input username", () => {});
+  test("<MemberLogin />", () => {
+    let { getByTestId, container } = render(<MemberLogin />);
+
+    let usernameForm = getByTestId("usernameForm");
+    let passwordForm = getByTestId("passwordForm");
+    expect(passwordForm.textContent).toBe("");
+    expect(usernameForm.textContent).toBe("");
+
+    expect(container.firstChild).toMatchSnapshot();
+  });
 });

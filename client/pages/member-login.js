@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { loginU } from "../helpers/apiHelpers/userLogin";
+import LoginForm from "../components/login/LoginForm";
 
 export default function memberLogin() {
+  const handleLogin = (e, formInput) => {
+    e.preventDefault();
+    loginU(formInput);
+  };
+
   return (
-    <div className="w-screen">
-      <div className="flex w-full justify-center">
-        <form className="flex flex-col m-10">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
-          />
-          <label for="password">Password</label>
-          <input type="password" />
-        </form>
+    <div className="w-screen p-4">
+      <div className="flex flex-col w-full justify-center items-center bg-red-400 rounded-lg">
+        <h3 className="text-xl">Member Login</h3>
+        <LoginForm handleLogin={handleLogin} />
       </div>
     </div>
   );
