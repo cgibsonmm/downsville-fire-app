@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { loginU } from "../helpers/apiHelpers/userLogin";
+import { login } from "../helpers/apiHelpers/userLogin";
 import LoginForm from "../components/login/LoginForm";
 
 export default function memberLogin() {
   const handleLogin = (formInput) => {
-    loginU(formInput);
+    login(formInput);
   };
 
   return (

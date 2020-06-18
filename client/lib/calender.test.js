@@ -15,7 +15,6 @@ beforeAll(() => {
 describe("Calender", () => {
   test("can create a new calender", () => {
     expect(cal).toBeInstanceOf(Calender);
-    expect(cal.month).toBe(testMonth);
   });
 
   test("currentDay should return the current day", () => {
@@ -39,10 +38,5 @@ describe("Calender", () => {
     curMonth.forEach((day, index) => {
       expect(day.date).toBe(index + 1);
     });
-  });
-
-  test("can change the month", () => {
-    let cur = cal.changeMonth(-1);
-    console.log(cur);
   });
 });

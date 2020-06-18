@@ -42,7 +42,6 @@ export default class Calender {
       testSquareMonth.push(this.dayFormat(i));
     }
 
-    console.log(monthEndDayOfWeek);
     if (monthEndDayOfWeek !== 6) {
       let c = 1;
       let end = monthEndDayOfWeek;
