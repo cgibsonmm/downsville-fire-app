@@ -3,8 +3,7 @@ import { loginU } from "../helpers/apiHelpers/userLogin";
 import LoginForm from "../components/login/LoginForm";
 
 export default function memberLogin() {
-  const handleLogin = (e, formInput) => {
-    e.preventDefault();
+  const handleLogin = (formInput) => {
     loginU(formInput);
   };
 

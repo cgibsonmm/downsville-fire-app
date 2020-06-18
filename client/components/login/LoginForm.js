@@ -17,12 +17,15 @@ export default function LoginForm({ handleLogin }) {
 
   return (
     <form
-      onSubmit={(e) => handleLogin(e, formInput)}
+      onSubmit={(e) => {
+        e.preventDefault(), handleLogin(formInput);
+      }}
       className="flex flex-col w-full p-6"
       data-testid="loginForm"
     >
       <label htmlFor="email">Email</label>
       <input
+        id="email"
         data-testid="usernameForm"
         type="email"
         name="email"
@@ -31,6 +34,7 @@ export default function LoginForm({ handleLogin }) {
       />
       <label htmlFor="password">Password</label>
       <input
+        id="password"
         data-testid="passwordForm"
         type="password"
         name="password"

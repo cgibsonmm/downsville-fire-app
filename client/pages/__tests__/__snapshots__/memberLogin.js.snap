@@ -24,6 +24,7 @@ exports[`<MemberLogin /> <MemberLogin /> 1`] = `
       <input
         class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
         data-testid="usernameForm"
+        id="email"
         name="email"
         type="email"
       />
@@ -35,6 +36,7 @@ exports[`<MemberLogin /> <MemberLogin /> 1`] = `
       <input
         class="bg-white focus:outline-none focus:shadow-outline focus:text-xs border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
         data-testid="passwordForm"
+        id="password"
         name="password"
         type="password"
       />
