@@ -25,7 +25,7 @@ export default class Calender {
 
   buildSquareMonth() {
     let monthStartDayOfWeek = this.moment.startOf("Month").weekday();
-    let monthEndDayOfWeek = this.moment.endOf("Month").isoWeekday();
+    let monthEndDayOfWeek = this.moment.endOf("Month").weekday();
     let lengthOfMonth = this.moment.daysInMonth();
     let testSquareMonth = [];
     let testLastMonthLength = this.moment
@@ -42,11 +42,15 @@ export default class Calender {
       testSquareMonth.push(this.dayFormat(i));
     }
 
-    let c = 1;
+    console.log(monthEndDayOfWeek);
+    if (monthEndDayOfWeek !== 6) {
+      let c = 1;
+      let end = monthEndDayOfWeek;
 
-    for (let i = monthEndDayOfWeek; i < 6; i++) {
-      testSquareMonth.push(this.dayFormat(c, +1));
-      c += 1;
+      for (let v = end; v < 6; v++) {
+        testSquareMonth.push(this.dayFormat(c, +1));
+        c += 1;
+      }
     }
 
     return testSquareMonth;
