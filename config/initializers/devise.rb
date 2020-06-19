@@ -280,7 +280,7 @@ Devise.setup do |config|
   config.warden do |manager|
     manager.intercept_401 = false
     manager.strategies.add :jwt, Devise::Strategies::JWT
-    manager.default_strategies(scope: :member).unshift :JWT
+    manager.default_strategies(scope: :member).unshift :jwt
   end
 
   # ==> Mountable engine configurations
@@ -311,17 +311,17 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 end
 
-
 module Devise
   module Strategies
     class JWT < Base
       def valid?
         request.headers['Authorization'].present?
       end
-def authenticate!
+
+      def authenticate!
         token = request.headers.fetch('Authorization', '').split(' ').last
         payload = JsonWebToken.decode(token)
-        success! User.find(payload['sub'])
+        success! Member.find(payload['sub'])
       rescue ::JWT::ExpiredSignature
         fail! 'Auth token has expired'
       rescue ::JWT::DecodeError
