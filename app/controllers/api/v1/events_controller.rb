@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class Api::V1::EventsController < ApiController
+  skip_before_action :authenticate_member!, only: [:index]
+  def index
+    @events = Event.all
+
+    render json: @events, status: :ok
+  end
+
   def create
     @event = current_member.events.build(event_params)
 
@@ -14,6 +21,6 @@ class Api::V1::EventsController < ApiController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_time, :end_time, :type)
+    params.require(:event).permit(:title, :start_time, :end_time, :type, :date)
   end
 end
