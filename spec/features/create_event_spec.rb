@@ -33,6 +33,9 @@ describe 'Creating an event', type: :request do
         expect(res['error']).to include('Title is too short (minimum is 3 characters)')
         expect(response).to have_http_status(422)
       end
+
+      xit 'should have a start time' do; end
+      xit 'should have an end time' do; end
     end
   end
 end
