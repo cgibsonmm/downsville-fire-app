@@ -32,6 +32,8 @@ gem 'jwt'
 
 gem 'rack-cors'
 
+gem 'validates_timeliness'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
