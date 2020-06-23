@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 // REDUX
 import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
@@ -14,6 +16,9 @@ regIcons();
 function App({ Component, pageProps }) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Downsville Fire Dept</title>
+      </Head>
       <div className="h-screen w-screen flex flex-col antialiased leading-tight">
         <Navbar />
         <Component {...pageProps} />
