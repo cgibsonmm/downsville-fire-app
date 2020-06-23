@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :members, controllers: { registrations: 'registrations' }
   namespace :api do
     namespace :v1 do
-      devise_for :members, controllers: { registrations: 'registrations' }
       post :auth, to: 'authentication#create'
       get '/auth' => 'authentication#fetch'
+      resources :events
     end
   end
 

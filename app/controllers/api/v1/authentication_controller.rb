@@ -4,7 +4,6 @@ class Api::V1::AuthenticationController < ApiController
   skip_before_action :authenticate_member!, only: [:create]
   def create
     member = Member.find_by(email: params[:email])
-    puts member
     if member&.valid_password?(params[:password])
       render json: { token: JsonWebToken.encode(sub: member.id) }
     else
@@ -14,5 +13,5 @@ class Api::V1::AuthenticationController < ApiController
 
   def fetch
     render json: current_member
-    end
+  end
 end
