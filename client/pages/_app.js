@@ -21,7 +21,6 @@ function App({ Component, pageProps }) {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      console.log("here");
       dispatch(fetchMemberData());
     }
   }, []);

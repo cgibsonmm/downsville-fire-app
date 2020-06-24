@@ -8,7 +8,6 @@ const initialState = {
 };
 
 export default function loginReducer(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case HYDRATE:
       return state;
@@ -28,6 +27,12 @@ export default function loginReducer(state = initialState, action) {
         loading: false,
         member: null,
         error: action.payload,
+      };
+
+    case types.LOGOUT_MEMBER:
+      return {
+        ...state,
+        member: null,
       };
     default:
       return state;

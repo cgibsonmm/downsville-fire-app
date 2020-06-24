@@ -1,19 +1,28 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import DropDownLinks from "./DropDownLinks";
+
 import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
-import { useSelector } from "react-redux";
+import MemberEmail from "./MemberEmail";
+import DropDownLinks from "./DropDownLinks";
 
 let Links = ["Gallery", "Events", "Contact Us", "Member Login"];
 
 export default function Navbar() {
   const [linksOpen, setLinksOpen] = useState(false);
+  const [links, setLinks] = useState(Links);
   const currentMember = useSelector((state) => state.currentMember);
-  if (currentMember.member) {
-    Links = Links.filter((link) => link !== "Member Login");
-  }
+
+  useEffect(() => {
+    if (currentMember.member) {
+      setLinks(links.filter((link) => link !== "Member Login"));
+    } else {
+      setLinks(Links);
+    }
+  }, [currentMember]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -34,7 +43,7 @@ export default function Navbar() {
 
   const displayMember = () => {
     if (currentMember.member) {
-      return <li>{currentMember.member.email}</li>;
+      return <MemberEmail member={currentMember.member.email} />;
     }
   };
 
@@ -65,7 +74,7 @@ export default function Navbar() {
             </div>
             <div className="hidden md:block">
               <ul className="flex">
-                {Links.map((link, index) => (
+                {links.map((link, index) => (
                   <NavLink
                     link={link}
                     key={`full-nav-link-${index}`}
@@ -79,7 +88,7 @@ export default function Navbar() {
         </nav>
       </header>
       {linksOpen && (
-        <DropDownLinks links={Links} handleLinkClick={handleLinkClick} />
+        <DropDownLinks links={links} handleLinkClick={handleLinkClick} />
       )}
     </>
   );

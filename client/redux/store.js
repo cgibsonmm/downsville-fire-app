@@ -5,12 +5,12 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
 const initialState = {
-  counter: 10,
-  currentMember: {
-    loading: false,
-    member: null,
-    error: null,
-  },
+  // counter: 10,
+  // // currentMember: {
+  // //   loading: false,
+  // //   member: null,
+  // //   error: null,
+  // // },
 };
 
 const store = createStore(

@@ -8,7 +8,6 @@ const fetchMemberRequest = () => {
 };
 
 const fetchMemberSuccess = (payload) => {
-  console.log(payload);
   return {
     type: types.LOGIN_MEMBER_SUCCESS,
     payload,
@@ -22,6 +21,12 @@ const fetchMemberFailure = (payload) => {
   };
 };
 
+const clearMemberState = () => {
+  return {
+    type: types.LOGOUT_MEMBER,
+  };
+};
+
 export const loginMember = (data) => {
   return (dispatch) => {
     dispatch(fetchMemberRequest());
@@ -29,6 +34,13 @@ export const loginMember = (data) => {
     fetchMemberToken(data)
       .then((res) => dispatch(fetchMemberSuccess(res)))
       .catch((e) => dispatch(fetchMemberFailure(e.response.data.errors)));
+  };
+};
+
+export const logoutMember = () => {
+  return (dispatch) => {
+    localStorage.clear("token");
+    dispatch(clearMemberState());
   };
 };
 

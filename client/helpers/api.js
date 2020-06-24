@@ -13,7 +13,6 @@ export const fetchMemberToken = async (data) => {
 export const fetchCurrentMemberData = async () => {
   try {
     let res = await api.get("/auth");
-    console.log(res);
     return res.data;
   } catch (e) {
     throw e;
