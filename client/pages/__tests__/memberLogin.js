@@ -1,7 +1,7 @@
 import { render, cleanup } from "@testing-library/react";
 import MemberLogin from "../member-login";
 
-afterEach(cleanup);
+beforeEach(cleanup);
 
 describe("<MemberLogin />", () => {
   test("<MemberLogin />", () => {
