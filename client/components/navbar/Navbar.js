@@ -43,7 +43,7 @@ export default function Navbar() {
 
   const displayMember = () => {
     if (currentMember.member) {
-      return <MemberEmail member={currentMember.member.email} />;
+      return <MemberEmail member={currentMember.member} />;
     }
   };
 
