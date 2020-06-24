@@ -1,2 +1,6 @@
 export const ADD = "ADD";
 export const SUB = "SUB";
+
+export const LOGIN_MEMBER_REQUEST = "LOGIN_MEMBER_REQUEST";
+export const LOGIN_MEMBER_SUCCESS = "LOGIN_MEMBER_SUCCESS";
+export const LOGIN_MEMBER_FAILURE = "LOGIN_MEMBER_FAILURE";

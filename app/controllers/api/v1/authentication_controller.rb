@@ -5,13 +5,13 @@ class Api::V1::AuthenticationController < ApiController
   def create
     member = Member.find_by(email: params[:email])
     if member&.valid_password?(params[:password])
-      render json: { token: JsonWebToken.encode(sub: member.id) }
+      render json: { email: member.email, admin: false, token: JsonWebToken.encode(sub: member.id) }, status: :ok
     else
-      render json: { errors: 'invalid' }
+      render json: { errors: 'invalid email or password' }, status: :bad_request
     end
   end
 
   def fetch
-    render json: current_member
+    render json: { email: current_member.email, admin: false }, status: :ok
   end
 end

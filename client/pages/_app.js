@@ -1,9 +1,12 @@
+import { useEffect } from "react";
 import Head from "next/head";
 
 // REDUX
 import { Provider } from "react-redux";
 import { createWrapper } from "next-redux-wrapper";
 import store from "../redux/store";
+import { useDispatch } from "react-redux";
+import { fetchMemberData } from "../redux/actions/loginActions";
 
 // COMPONENTS
 import Navbar from "../components/navbar/Navbar";
@@ -14,6 +17,15 @@ import regIcons from "../helpers/FaSetup";
 regIcons();
 
 function App({ Component, pageProps }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      console.log("here");
+      dispatch(fetchMemberData());
+    }
+  }, []);
+
   return (
     <Provider store={store}>
       <Head>

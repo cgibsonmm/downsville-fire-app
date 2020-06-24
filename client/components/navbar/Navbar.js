@@ -4,14 +4,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropDownLinks from "./DropDownLinks";
 import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
+import { useSelector } from "react-redux";
 
-const Links = ["Home", "Gallery", "Events", "Contact Us", "Member Login"];
+let Links = ["Gallery", "Events", "Contact Us", "Member Login"];
 
 export default function Navbar() {
   const [linksOpen, setLinksOpen] = useState(false);
+  const currentMember = useSelector((state) => state.currentMember);
+  if (currentMember.member) {
+    Links = Links.filter((link) => link !== "Member Login");
+  }
 
   useEffect(() => {
-    if (window) {
+    if (typeof window !== "undefined") {
       window.addEventListener("resize", () => {
         if (window.innerWidth > 767 && linksOpen) {
           setLinksOpen(false);
@@ -25,6 +30,12 @@ export default function Navbar() {
 
   const handleLinkClick = () => {
     setLinksOpen(false);
+  };
+
+  const displayMember = () => {
+    if (currentMember.member) {
+      return <li>{currentMember.member.email}</li>;
+    }
   };
 
   return (
@@ -61,6 +72,7 @@ export default function Navbar() {
                     handleLinkClick={() => null}
                   />
                 ))}
+                {displayMember()}
               </ul>
             </div>
           </div>
