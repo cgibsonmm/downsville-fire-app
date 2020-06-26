@@ -21,14 +21,14 @@ describe 'member login', type: :request do
       post '/api/v1/auth', params: { email: '', password: @member.password }
       res = JSON.parse(response.body)
       expect(res).to have_key('errors')
-      expect(res['errors']).to eq('invalid')
+      expect(res['errors']).to eq('invalid email or password')
     end
 
     it 'should have a valid password' do
       post '/api/v1/auth', params: { email: @member.email, password: '123' }
       res = JSON.parse(response.body)
       expect(res).to have_key('errors')
-      expect(res['errors']).to eq('invalid')
+      expect(res['errors']).to eq('invalid email or password')
     end
   end
 end

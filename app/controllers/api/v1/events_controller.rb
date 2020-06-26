@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::V1::EventsController < ApiController
-  skip_before_action :authenticate_member!, only: [:index]
+  skip_before_action :authenticate_member!, only: %i[index show]
   def index
     @events = Event.all
 
@@ -16,6 +16,12 @@ class Api::V1::EventsController < ApiController
     else
       render json: { error: @event.errors.full_messages }, status: :unprocessable_entity
     end
+  end
+
+  def show
+    @event = Event.find(params['id'])
+
+    render json: @event
   end
 
   private

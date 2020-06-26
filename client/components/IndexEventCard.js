@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const style = {
   bg: {
     background: `url(${require("./../assets/images/demo.jpg")}) no-repeat center center`,
@@ -6,7 +8,7 @@ const style = {
 };
 
 export default function IndexEventCard({ event }) {
-  const { title, details, startTime, endTime } = event;
+  const { title, description, startTime, endTime, id } = event;
 
   return (
     <li className="h-auto w-full md:w-1/2 lg:w-1/3 px-1 py-1">
@@ -27,11 +29,13 @@ export default function IndexEventCard({ event }) {
         <div className="pl-4 flex flex-col w-full h-40">
           <div className="text-2xl font-bold">{title}</div>
           <p className="text-sm lg:text-xs xl:text-sm h-auto block-with-text mt-2">
-            {details}
+            {description}
           </p>
-          <button className="text-gray-100 mt-1 py-1 px-4 border bg-red-500 rounded-full self-end mt-auto hover:bg-gray-100 hover:text-red-500 hover:border-2 hover:border-red-500 focus:outline-none font-bold ">
-            Read More
-          </button>
+          <Link href="/events/[title]" as={`/events/${id}`}>
+            <button className="text-gray-100 mt-1 py-1 px-4 border bg-red-500 rounded-full self-end mt-auto hover:bg-gray-100 hover:text-red-500 hover:border-2 hover:border-red-500 focus:outline-none font-bold ">
+              Read More
+            </button>
+          </Link>
         </div>
       </div>
     </li>
