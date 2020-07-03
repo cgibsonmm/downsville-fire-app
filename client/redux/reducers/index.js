@@ -3,8 +3,10 @@ import counterReducer from "./counterReducer";
 import loginReducer from "./loginReducer";
 import navReducer from "./navReducer";
 
+let currentMember = loginReducer;
+
 export default combineReducers({
   counter: counterReducer,
-  currentMember: loginReducer,
+  currentMember,
   memberDropDown: navReducer,
 });
