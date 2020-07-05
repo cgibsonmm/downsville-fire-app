@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 function FullDay() {
   const router = useRouter();
+  const [admin, setAdmin] = useState(false);
   const { id } = router.query;
   const [event, setEvent] = useState({});
   let currentMember = useSelector((state) => state.currentMember);
@@ -14,6 +15,12 @@ function FullDay() {
       fetchEvent();
     }
   }, [id]);
+
+  useEffect(() => {
+    if (currentMember.member) {
+      setAdmin(currentMember.member.admin);
+    }
+  }, [currentMember]);
 
   const fetchEvent = async () => {
     let e = await getEventById(id);
