@@ -28,7 +28,7 @@ export default function EventForm({ event, type, handleInput, handleSubmit }) {
         className="my-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         name="date"
         id="date"
-        selected={event.date}
+        selected={event && event.date}
         minDate={new Date()}
         onChange={handleDateInput}
       />

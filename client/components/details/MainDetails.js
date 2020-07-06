@@ -21,6 +21,23 @@ export default function MainDetails() {
           personnel and corporate staff members. Eaque ipsa quae ab illo
           inventore veritatis.
         </div>
+        <ul className="text-xl flex flex-wrap justify-start">
+          <li className="relative text-red-500 mr-2 md:mr-4 my-2">
+            <span className="ml-4 red-dot text-gray-900 font-semibold">
+              Free Training
+            </span>
+          </li>
+          <li className="relative text-red-500 mr-2 md:mr-4 my-2">
+            <span className="ml-4 red-dot text-gray-900 font-semibold">
+              Tax Cut
+            </span>
+          </li>
+          <li className="relative text-red-500 mr-2 md:mr-4 my-2">
+            <span className="ml-4 red-dot text-gray-900 font-semibold">
+              Fire Code Inspections
+            </span>
+          </li>
+        </ul>
       </div>
       {/* Right */}
       <div className="w-full p-4 md:w-1/2 flex flex-wrap">

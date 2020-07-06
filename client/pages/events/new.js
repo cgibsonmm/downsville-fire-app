@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Router from "next/router";
 import EventForm from "./EventForm";
+import { useSelector } from "react-redux";
 import { createEvent } from "../../helpers/apiHelpers/apiEvents";
 
 export default function newEvent() {
@@ -10,6 +11,14 @@ export default function newEvent() {
     description: "",
   });
   const [errors, setErrors] = useState([]);
+  const [admin, setAdmin] = useState(null);
+  const currentMember = useSelector((state) => state.currentMember);
+
+  useEffect(() => {
+    if (currentMember.member) {
+      setAdmin(currentMember.member.admin);
+    }
+  }, [currentMember]);
 
   const handleInput = (e) => {
     let { name, value } = e.target;
@@ -38,12 +47,15 @@ export default function newEvent() {
             * {error}
           </p>
         ))}
-      <EventForm
-        event={event}
-        type={"Create"}
-        handleInput={handleInput}
-        handleSubmit={handleSubmit}
-      />
+      {admin && (
+        <EventForm
+          event={event}
+          type={"Create"}
+          handleInput={handleInput}
+          handleSubmit={handleSubmit}
+        />
+      )}
+      {/* {!admin &&} */}
     </div>
   );
 }

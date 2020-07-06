@@ -10,7 +10,7 @@ const style = {
 
 export default function IndexEventCard({ event }) {
   const { title, description, startTime, endTime, id, date } = event;
-
+  console.log(date);
   return (
     <li className="h-auto w-full md:w-1/2 lg:w-1/3 px-1 py-1">
       <div className="h-full w-full shadow rounded-md flex p-3 border">
