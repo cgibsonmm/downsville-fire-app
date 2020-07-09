@@ -8,6 +8,7 @@ import Cross from "../../assets/svg/cross.png";
 import NavLink from "./NavLink";
 import MemberEmail from "./MemberEmail";
 import DropDownLinks from "./DropDownLinks";
+import MemberDropdownLinks from "./MemberDropdownLinks";
 
 let Links = ["Gallery", "Events", "Contact Us", "Member Login"];
 
@@ -45,6 +46,10 @@ export default function Navbar() {
     if (currentMember.member) {
       return <MemberEmail member={currentMember.member} />;
     }
+  };
+
+  const MemberLinks = () => {
+    return <MemberDropdownLinks member={currentMember.member} />;
   };
 
   return (
@@ -90,6 +95,7 @@ export default function Navbar() {
       {linksOpen && (
         <DropDownLinks links={links} handleLinkClick={handleLinkClick} />
       )}
+      {linksOpen && currentMember.member && MemberLinks()}
     </>
   );
 }

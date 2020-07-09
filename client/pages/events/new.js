@@ -7,7 +7,7 @@ import { createEvent } from "../../helpers/apiHelpers/apiEvents";
 export default function newEvent() {
   const [event, setEvent] = useState({
     title: "",
-    date: "",
+    date: null,
     description: "",
   });
   const [errors, setErrors] = useState([]);
@@ -22,10 +22,10 @@ export default function newEvent() {
 
   const handleInput = (e) => {
     let { name, value } = e.target;
-    setEvent({
-      ...event,
+    setEvent((prevState) => ({
+      ...prevState,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = async (e) => {
