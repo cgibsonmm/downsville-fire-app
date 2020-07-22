@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'welcome/index'
   devise_for :members, controllers: { registrations: 'registrations' }
   namespace :api do
     namespace :v1 do

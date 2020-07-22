@@ -1,0 +1,13 @@
+ <h5>Events</h5>
+    <ul>
+<% @events.each do |event|%>
+   
+    <li>
+
+      <%= event.title%>
+    </li>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "Delete", destroy_member_session_path, method: :delete %>
