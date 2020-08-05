@@ -2,6 +2,9 @@
 
 Rails.application.routes.draw do
   get 'welcome/index'
+  root 'welcome#index'
+
+  get 'admin/index'
   devise_for :members, controllers: { registrations: 'registrations' }
   namespace :api do
     namespace :v1 do

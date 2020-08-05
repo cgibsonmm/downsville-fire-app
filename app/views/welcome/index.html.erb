@@ -1,13 +1,7 @@
- <h5>Events</h5>
-    <ul>
-<% @events.each do |event|%>
-   
-    <li>
+<h4>Welcome to the Downsville Fire Department.</h4>
 
-      <%= event.title%>
-    </li>
-  </li>
-<% end %>
-</ul>
-
-<%= link_to "Delete", destroy_member_session_path, method: :delete %>
+<%if @current_member%>
+  <%= link_to 'Admin Panel', admin_index_path %>
+<%else %>
+  <%= link_to 'Admin Login', new_member_session_path%>
+<%end %>
