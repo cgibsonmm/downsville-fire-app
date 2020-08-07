@@ -1,0 +1,7 @@
+<h4>Welcome to the Downsville Fire Department.</h4>
+
+<%if @current_member%>
+  <%= link_to 'Admin Panel', admin_index_path %>
+<%else %>
+  <%= link_to 'Admin Login', new_member_session_path%>
+<%end %>

@@ -3,8 +3,10 @@
 class Api::V1::EventsController < ApiController
   skip_before_action :authenticate_member!, only: %i[index show]
   def index
-    @events = Event.all
-
+    puts Date.today
+    # @events = Event.all
+    @events = Event.where('date >= ?', Date.today).order('date ASC')
+    puts @events.inspect
     render json: @events, status: :ok
   end
 
@@ -27,6 +29,6 @@ class Api::V1::EventsController < ApiController
   private
 
   def event_params
-    params.require(:event).permit(:title, :start_time, :end_time, :type, :date)
+    params.require(:event).permit(:title, :description, :start_time, :end_time, :type, :date)
   end
 end

@@ -32,6 +32,7 @@ gem 'jwt'
 
 gem 'rack-cors'
 
+gem 'activeadmin'
 gem 'validates_timeliness'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -39,7 +40,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'capybara'
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails', '~> 3.6'

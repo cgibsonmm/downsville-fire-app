@@ -12,6 +12,7 @@ import { fetchMemberData } from "../redux/actions/loginActions";
 import Navbar from "../components/navbar/Navbar";
 
 // STYLING
+import "react-datepicker/dist/react-datepicker.css";
 import "../assets/css/styles.css";
 import regIcons from "../helpers/FaSetup";
 regIcons();

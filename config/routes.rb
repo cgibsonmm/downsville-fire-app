@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  get 'welcome/index'
+  root 'welcome#index'
+
+  get 'admin/index'
   devise_for :members, controllers: { registrations: 'registrations' }
   namespace :api do
     namespace :v1 do

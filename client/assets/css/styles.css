@@ -59,3 +59,14 @@
   /* bg color = bg color under block */
   background: white;
 }
+
+.red-dot::before {
+  content: "";
+  background-color: red;
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  border-radius: 50%;
+}

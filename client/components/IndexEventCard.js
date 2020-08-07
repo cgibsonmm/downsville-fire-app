@@ -1,4 +1,5 @@
 import Link from "next/link";
+import moment from "moment";
 
 const style = {
   bg: {
@@ -8,8 +9,8 @@ const style = {
 };
 
 export default function IndexEventCard({ event }) {
-  const { title, description, startTime, endTime, id } = event;
-
+  const { title, description, startTime, endTime, id, date } = event;
+  console.log(date);
   return (
     <li className="h-auto w-full md:w-1/2 lg:w-1/3 px-1 py-1">
       <div className="h-full w-full shadow rounded-md flex p-3 border">
@@ -18,11 +19,16 @@ export default function IndexEventCard({ event }) {
           className="w-1/3 lg:w-1/2 xl:w-1/3 h-full rounded-md"
         >
           <div className="h-full w-full bg-gray-900 bg-opacity-50 flex-col flex items-center justify-between p-3 text-gray-100 rounded-md">
-            <div className="font-extrabold text-5xl">06</div>
-            <div className="font-extrabold text-2xl">SEP</div>
+            <div className="font-extrabold text-5xl">
+              {moment(date).format("DD")}
+            </div>
+            <div className="font-extrabold text-2xl">
+              {moment(date).format("MMMM")}
+            </div>
             <div className="flex flex-col text-xs justify-center items-end">
-              <div>S: {startTime}</div>
-              <div>E: {endTime}</div>
+              {startTime && <div>S: {startTime}</div>}
+              {endTime && <div>E: {endTime}</div>}
+              <p></p>
             </div>
           </div>
         </div>
