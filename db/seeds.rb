@@ -14,3 +14,4 @@ require 'faker'
   @e = @member.events.build(title: Faker::Artist.name, description: Faker::Lorem.paragraph_by_chars, date: (Date.today - 2.day))
   @e.save!
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

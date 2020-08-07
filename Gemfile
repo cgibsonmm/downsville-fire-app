@@ -32,6 +32,7 @@ gem 'jwt'
 
 gem 'rack-cors'
 
+gem 'activeadmin'
 gem 'validates_timeliness'
 
 # Reduces boot times through caching; required in config/boot.rb
