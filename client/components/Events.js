@@ -17,6 +17,10 @@ export default function Events() {
     setEvents(data);
   };
 
+  if (events.length < 1) {
+    return <div className="flex text-3xl"></div>;
+  }
+
   return (
     <div className="flex flex-col w-screen items-center mt-10">
       <Link href="/events">

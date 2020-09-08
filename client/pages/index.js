@@ -1,6 +1,7 @@
 import House from "../assets/svg/fire-icons/house.svg";
 import Events from "../components/Events";
 import MainDetails from "../components/details/MainDetails";
+import LineOfficers from "../components/LineOfficers";
 
 const style = {
   bg: {
@@ -28,6 +29,7 @@ export default function index() {
         <section>
           <MainDetails />
           <Events />
+          <LineOfficers />
         </section>
       </section>
     </div>

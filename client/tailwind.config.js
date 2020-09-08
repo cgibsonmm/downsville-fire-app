@@ -8,4 +8,10 @@ module.exports = {
     button: ["hover", "focus"],
   },
   plugins: [],
+  experimental: {
+    uniformColorPalette: true,
+  },
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
 };
