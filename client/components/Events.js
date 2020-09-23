@@ -22,7 +22,7 @@ export default function Events() {
   }
 
   return (
-    <div className="flex flex-col w-screen items-center mt-10">
+    <div className="mt-10 flex flex-col items-center">
       <Link href="/events">
         <h2 className="poppins-heavy text-2xl underline cursor-pointer">
           EVENTS

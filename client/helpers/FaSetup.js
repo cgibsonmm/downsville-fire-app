@@ -5,8 +5,16 @@ import {
   faCaretLeft,
   faAngleDown,
   faAngleUp,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function regIcons() {
-  library.add(faBars, faCaretLeft, faCaretRight, faAngleDown, faAngleUp);
+  library.add(
+    faBars,
+    faCaretLeft,
+    faCaretRight,
+    faAngleDown,
+    faAngleUp,
+    faUser
+  );
 }

@@ -8,10 +8,31 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@member = Member.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-@member = Member.find(1)
+if Rails.env.development?
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
+
 5.times do
-  @e = @member.events.build(title: Faker::Artist.name, description: Faker::Lorem.paragraph_by_chars, date: (Date.today - 2.day))
+  @e = @member.events.build(title: Faker::Artist.name, description: Faker::Lorem.paragraph_by_chars, date: (Date.today + 2.day))
   @e.save!
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+1.times do
+  @l_o = LineOfficer.create!(
+    name: Faker::Name.name,
+    years_of_service: Faker::Number.between(from: 1, to: 25),
+    bio: Faker::Lorem.paragraph(sentence_count: 5),
+    rank: true
+  )
+end
+
+6.times do
+  @l_o = LineOfficer.create!(
+    name: Faker::Name.name,
+    years_of_service: Faker::Number.between(from: 1, to: 25),
+    bio: Faker::Lorem.paragraph(sentence_count: 5),
+    rank: false
+  )
+end

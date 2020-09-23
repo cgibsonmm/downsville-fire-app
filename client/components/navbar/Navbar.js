@@ -54,8 +54,8 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="p-4 w-full bg-gray-800 border-b-2 border-black">
-        <nav>
+      <header className="p-4 w-full bg-gray-800 border-b-2 border-black flex justify-center">
+        <nav className="container">
           <div className="flex w-full justify-between items-center">
             <Link href="/">
               <div className="flex">

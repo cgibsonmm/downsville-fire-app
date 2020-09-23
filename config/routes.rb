@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       post :auth, to: 'authentication#create'
       get '/auth' => 'authentication#fetch'
       resources :events
+      resources :line_officers
     end
   end
 

@@ -26,7 +26,7 @@ export default function index() {
             </button> */}
           </div>
         </main>
-        <section>
+        <section className="flex flex-col container m-auto">
           <MainDetails />
           <Events />
           <LineOfficers />

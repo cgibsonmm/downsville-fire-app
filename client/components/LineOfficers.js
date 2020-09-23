@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OfficerCard from "./OfficerCard";
-// import { getOfficers } from "../helpers/";
+import { getOfficers } from "../helpers/apiHelpers/apiOfficers";
 
 export default function LineOfficers() {
   const [officers, setOfficers] = useState([
@@ -15,8 +15,8 @@ export default function LineOfficers() {
   ]);
 
   const makeApiCall = async () => {
-    // let data = await getOfficers();
-    // setOfficers(data);
+    let data = await getOfficers();
+    setOfficers(data);
   };
 
   useEffect(() => {
@@ -24,11 +24,11 @@ export default function LineOfficers() {
   }, []);
 
   return (
-    <div className="flex flex-col w-screen items-center mt-10">
+    <div className="flex flex-col items-center mt-10">
       <h3 className="poppins-heavy text-2xl underline cursor-pointer">
         LINE OFFICERS
       </h3>
-      <ul className="flex flex-wrap sm:w-full md:w-3/4">
+      <ul className="flex flex-wrap w-full">
         {officers.map((officer, id) => {
           return <OfficerCard officer={officer} key={`officer-card-${id}`} />;
         })}

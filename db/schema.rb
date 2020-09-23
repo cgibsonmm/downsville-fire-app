@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2020_09_08_161214) do
   end
 
   create_table "line_officers", force: :cascade do |t|
-    t.string "Name"
-    t.integer "YearOfService"
+    t.string "name"
+    t.integer "years_of_service"
     t.text "bio"
     t.boolean "rank"
     t.datetime "created_at", precision: 6, null: false
