@@ -14,7 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "autoprefixer": "^9.8.0",
     "axios": "^0.19.2",
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "next": "9.4.4",
     "next-images": "^1.4.0",
     "next-redux-wrapper": "^6.0.1",
